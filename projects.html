@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Projects — Stone & Birch</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Projects-specific styles */
+    .projects-intro {
+      padding: 60px 48px 56px;
+      border-bottom: 1px solid #e4dfd8;
+    }
+    .projects-intro h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      font-weight: 300;
+      line-height: 1.3;
+      max-width: 600px;
+      margin-bottom: 16px;
+    }
+    .projects-intro p {
+      font-size: 0.84rem;
+      color: var(--mid);
+      line-height: 1.9;
+      max-width: 480px;
+    }
+
+    /* Full projects grid on projects page */
+    .all-projects {
+      padding: 60px 48px 120px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 60px 48px;
+    }
+
+    .proj-item { text-decoration: none; color: inherit; display: block; }
+    .proj-item:hover .proj-img img,
+    .proj-item:hover .proj-img .img-box { transform: scale(1.04); }
+    .proj-item:hover .proj-item-title::after { width: 100%; }
+
+    .proj-img {
+      overflow: hidden;
+      aspect-ratio: 4/3;
+      margin-bottom: 20px;
+      position: relative;
+    }
+    .proj-img img, .proj-img .img-box {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    /* Hover second image */
+    .proj-img .img-hover {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+    .proj-item:hover .proj-img .img-hover { opacity: 1; }
+
+    .proj-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 8px;
+    }
+    .proj-item-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 300;
+      position: relative;
+      display: inline-block;
+    }
+    .proj-item-title::after {
+      content: '';
+      position: absolute;
+      bottom: -2px; left: 0;
+      height: 1px;
+      width: 0;
+      background: var(--charcoal);
+      transition: width 0.4s ease;
+    }
+    .proj-type {
+      font-size: 0.65rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--stone);
+    }
+    .proj-desc {
+      font-size: 0.8rem;
+      line-height: 1.85;
+      color: var(--mid);
+      margin-top: 6px;
+    }
+    .proj-link {
+      display: inline-block;
+      margin-top: 14px;
+      font-size: 0.62rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--charcoal);
+      border-bottom: 1px solid var(--charcoal);
+      padding-bottom: 2px;
+      transition: color 0.3s;
+    }
+    .proj-item:hover .proj-link { color: var(--stone); border-color: var(--stone); }
+
+    @media (max-width: 960px) {
+      .all-projects { grid-template-columns: 1fr; padding: 48px 24px 80px; gap: 48px; }
+      .projects-intro { padding: 40px 24px 40px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav id="mainNav" class="dark scrolled">
+    <a href="index.html" class="logo">Stone &amp; Birch</a>
+    <button class="menu-btn" id="menuBtn" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="menu-overlay" id="menuOverlay">
+    <ul class="menu-links">
+      <li><a href="index.html" onclick="closeMenu()">Home</a></li>
+      <li><a href="projects.html" onclick="closeMenu()">Projects</a></li>
+      <li><a href="about.html" onclick="closeMenu()">About</a></li>
+      <li><a href="process.html" onclick="closeMenu()">Process</a></li>
+      <li><a href="services.html" onclick="closeMenu()">Services</a></li>
+      <li><a href="press.html" onclick="closeMenu()">Press</a></li>
+      <li><a href="connect.html" onclick="closeMenu()">Connect</a></li>
+    </ul>
+    <div class="menu-footer">
+      <p><a href="tel:+16045551234">604 555 1234</a><br><a href="mailto:hello@stoneandbirch.com">hello@stoneandbirch.com</a></p>
+      <p style="text-align:right;"><a href="#">Instagram</a>&nbsp;&nbsp;<a href="#">Pinterest</a><br><a href="#">Houzz</a>&nbsp;&nbsp;<a href="#">LinkedIn</a></p>
+    </div>
+  </div>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero" style="height:55vh;">
+    <div class="img-box">Your Projects Cover Photo</div>
+    <div class="page-hero-overlay"></div>
+    <div class="page-hero-title">
+      <h1>Projects</h1>
+    </div>
+  </div>
+
+  <!-- INTRO TEXT -->
+  <div class="projects-intro" style="padding-top:72px;">
+    <h2>A portfolio of homes made with intention</h2>
+    <p>Every project begins with a conversation. Here is a selection of the spaces we have had the privilege of designing, renovating, and bringing to life.</p>
+  </div>
+
+  <!-- ALL PROJECTS GRID -->
+  <div class="all-projects">
+
+    <!-- Repeat this block for each project. Replace img-box with <img> tags. -->
+
+    <a href="project.html" class="proj-item">
+      <div class="proj-img">
+        <div class="img-box">Project Cover Image</div>
+        <div class="img-hover img-box" style="background:#bfb9b2; position:absolute; inset:0;">Hover Image</div>
+      </div>
+      <div class="proj-meta">
+        <span class="proj-item-title">The Arbutus House</span>
+        <span class="proj-type">Full Renovation</span>
+      </div>
+      <p class="proj-desc">A complete transformation of a 1960s bungalow into a warm, light-filled family home in Vancouver's Arbutus neighbourhood.</p>
+      <span class="proj-link">More about this project</span>
+    </a>
+
+    <a href="project.html" class="proj-item">
+      <div class="proj-img">
+        <div class="img-box" style="background:#c5bfb8;">Project Cover Image</div>
+        <div class="img-hover img-box" style="background:#b8b2ab; position:absolute; inset:0;">Hover Image</div>
+      </div>
+      <div class="proj-meta">
+        <span class="proj-item-title">Kerrisdale Kitchen</span>
+        <span class="proj-type">Kitchen Renovation</span>
+      </div>
+      <p class="proj-desc">A thoughtful kitchen renovation for a growing family — balancing function, beauty, and the warmth of a well-loved home.</p>
+      <span class="proj-link">More about this project</span>
+    </a>
+
+    <a href="project.html" class="proj-item">
+      <div class="proj-img">
+        <div class="img-box" style="background:#cac3bb;">Project Cover Image</div>
+        <div class="img-hover img-box" style="background:#bdb6ae; position:absolute; inset:0;">Hover Image</div>
+      </div>
+      <div class="proj-meta">
+        <span class="proj-item-title">North Shore Retreat</span>
+        <span class="proj-type">New Build Design</span>
+      </div>
+      <p class="proj-desc">A nearly 8,000 sq. ft. new build lodge designed from the ground up for a family that loves to gather.</p>
+      <span class="proj-link">More about this project</span>
+    </a>
+
+    <a href="project.html" class="proj-item">
+      <div class="proj-img">
+        <div class="img-box" style="background:#c0bab3;">Project Cover Image</div>
+        <div class="img-hover img-box" style="background:#b3ada6; position:absolute; inset:0;">Hover Image</div>
+      </div>
+      <div class="proj-meta">
+        <span class="proj-item-title">West End Condo</span>
+        <span class="proj-type">Full Renovation &amp; Furnishing</span>
+      </div>
+      <p class="proj-desc">A top-to-bottom condo renovation paired with a fully tailored furniture package for a couple downsizing in style.</p>
+      <span class="proj-link">More about this project</span>
+    </a>
+
+    <a href="project.html" class="proj-item">
+      <div class="proj-img">
+        <div class="img-box" style="background:#c7c1ba;">Project Cover Image</div>
+        <div class="img-hover img-box" style="background:#bbb5ae; position:absolute; inset:0;">Hover Image</div>
+      </div>
+      <div class="proj-meta">
+        <span class="proj-item-title">Dunbar Family Home</span>
+        <span class="proj-type">Main Floor Renovation</span>
+      </div>
+      <p class="proj-desc">An open-plan main floor that finally gives a busy family the space to live, cook, and be together.</p>
+      <span class="proj-link">More about this project</span>
+    </a>
+
+    <a href="project.html" class="proj-item">
+      <div class="proj-img">
+        <div class="img-box" style="background:#b9b3ac;">Project Cover Image</div>
+        <div class="img-hover img-box" style="background:#ada7a0; position:absolute; inset:0;">Hover Image</div>
+      </div>
+      <div class="proj-meta">
+        <span class="proj-item-title">Kitsilano Suite</span>
+        <span class="proj-type">Decoration &amp; Styling</span>
+      </div>
+      <p class="proj-desc">A condo decoration project completed for a client who needed their space to feel finally, truly theirs.</p>
+      <span class="proj-link">More about this project</span>
+    </a>
+
+  </div>
+
+  <!-- FOOTER -->
+  <div class="subscribe-bar">
+    <h3>Stay in touch</h3>
+    <form class="subscribe-form" onsubmit="return false;">
+      <input type="email" placeholder="Your email address">
+      <button type="submit">Subscribe</button>
+    </form>
+  </div>
+  <footer>
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="index.html" class="logo" style="color:var(--cream);">Stone &amp; Birch</a>
+        <p>Full-service interior design and renovation studio based in Vancouver, BC.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="projects.html">Portfolio</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="connect.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <p><a href="tel:+16045551234">604 555 1234</a><br><a href="mailto:hello@stoneandbirch.com">hello@stoneandbirch.com</a></p>
+      </div>
+      <div class="footer-col">
+        <h4>Find Us</h4>
+        <p>Your Address<br>Vancouver, BC<br>V6K 2A1</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>©Stone &amp; Birch 2026.</span>
+      <span><a href="#">Privacy Policy</a>&nbsp;·&nbsp;<a href="#">Terms of Use</a></span>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>

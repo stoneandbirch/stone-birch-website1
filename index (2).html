@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Stone & Birch — Interior Design</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="mainNav" class="light">
+    <a href="index.html" class="logo">Stone &amp; Birch</a>
+    <button class="menu-btn" id="menuBtn" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- MENU OVERLAY -->
+  <div class="menu-overlay" id="menuOverlay">
+    <ul class="menu-links">
+      <li><a href="index.html" onclick="closeMenu()">Home</a></li>
+      <li><a href="projects.html" onclick="closeMenu()">Projects</a></li>
+      <li><a href="about.html" onclick="closeMenu()">About</a></li>
+      <li><a href="process.html" onclick="closeMenu()">Process</a></li>
+      <li><a href="services.html" onclick="closeMenu()">Services</a></li>
+      <li><a href="press.html" onclick="closeMenu()">Press</a></li>
+      <li><a href="connect.html" onclick="closeMenu()">Connect</a></li>
+    </ul>
+    <div class="menu-footer">
+      <p>
+        <a href="tel:+16045551234">604 555 1234</a><br>
+        <a href="mailto:hello@stoneandbirch.com">hello@stoneandbirch.com</a>
+      </p>
+      <p style="text-align:right;">
+        <a href="#">Instagram</a>&nbsp;&nbsp;
+        <a href="#">Pinterest</a><br>
+        <a href="#">Houzz</a>&nbsp;&nbsp;
+        <a href="#">LinkedIn</a>
+      </p>
+    </div>
+  </div>
+
+  <!-- HERO SLIDER -->
+  <section class="hero" id="hero">
+    <!-- Replace the .img-box divs with: <img src="images/hero-1.jpg" alt="..."> inside each .slide -->
+    <div class="slide active">
+      <div class="img-box">Your Hero Image 1</div>
+      <div class="slide-overlay"></div>
+    </div>
+    <div class="slide">
+      <div class="img-box" style="background:#b8b0a6;">Your Hero Image 2</div>
+      <div class="slide-overlay"></div>
+    </div>
+    <div class="slide">
+      <div class="img-box" style="background:#ccc5bc;">Your Hero Image 3</div>
+      <div class="slide-overlay"></div>
+    </div>
+    <div class="slide">
+      <div class="img-box" style="background:#bfb8b0;">Your Hero Image 4</div>
+      <div class="slide-overlay"></div>
+    </div>
+    <div class="slide">
+      <div class="img-box" style="background:#c9c2b9;">Your Hero Image 5</div>
+      <div class="slide-overlay"></div>
+    </div>
+
+    <div class="slide-counter" id="slideCounter">01 / 05</div>
+    <div class="slide-dots" id="slideDots">
+      <div class="dot active" data-slide="0"></div>
+      <div class="dot" data-slide="1"></div>
+      <div class="dot" data-slide="2"></div>
+      <div class="dot" data-slide="3"></div>
+      <div class="dot" data-slide="4"></div>
+    </div>
+    <div class="progress-bar" id="progressBar"></div>
+  </section>
+
+  <!-- INTRO -->
+  <section class="intro">
+    <h2>Design that feels like <em>coming home</em> — refined, layered, and deeply personal.</h2>
+    <p>Stone &amp; Birch is a full-service interior design studio creating beautiful, liveable homes. We believe great design is born from listening — to a space, to a life, to the stories that will unfold within it.</p>
+    <a href="about.html" class="btn-link">About the studio</a>
+  </section>
+
+  <!-- FEATURED PROJECTS -->
+  <div class="section-label">
+    <span>Selected Work</span>
+  </div>
+
+  <div class="projects-grid">
+    <a href="project.html" class="project-card project-card--wide">
+      <div class="img-box">Your Featured Project Image</div>
+      <div class="project-info">
+        <h3>The Arbutus House</h3>
+        <p>Full Renovation &amp; Interior Design</p>
+      </div>
+    </a>
+    <a href="project.html" class="project-card">
+      <div class="img-box" style="background:#c8c1b8;">Image 2</div>
+      <div class="project-info">
+        <h3>Kerrisdale Kitchen</h3>
+        <p>Kitchen Renovation</p>
+      </div>
+    </a>
+    <a href="project.html" class="project-card">
+      <div class="img-box" style="background:#bfb7ad;">Image 3</div>
+      <div class="project-info">
+        <h3>North Shore Retreat</h3>
+        <p>New Build Design</p>
+      </div>
+    </a>
+    <a href="project.html" class="project-card project-card--wide">
+      <div class="img-box" style="background:#c3bdb5;">Image 4</div>
+      <div class="project-info">
+        <h3>West End Condo</h3>
+        <p>Full Renovation &amp; Furnishing</p>
+      </div>
+    </a>
+    <a href="project.html" class="project-card">
+      <div class="img-box" style="background:#cac4bc;">Image 5</div>
+      <div class="project-info">
+        <h3>Dunbar Family Home</h3>
+        <p>Main Floor Renovation</p>
+      </div>
+    </a>
+    <a href="project.html" class="project-card">
+      <div class="img-box" style="background:#b9b2aa;">Image 6</div>
+      <div class="project-info">
+        <h3>Kitsilano Suite</h3>
+        <p>Decoration &amp; Styling</p>
+      </div>
+    </a>
+  </div>
+
+  <div style="text-align:center; padding-bottom: 100px;">
+    <a href="projects.html" class="btn-link">View all projects</a>
+  </div>
+
+  <!-- SERVICES -->
+  <section class="services">
+    <div class="service-item">
+      <span class="service-num">01</span>
+      <h3>Full-Service Interior Design</h3>
+      <p>From initial concept through final installation, we manage every detail — space planning, material selection, custom millwork, furniture procurement, and styling.</p>
+    </div>
+    <div class="service-item">
+      <span class="service-num">02</span>
+      <h3>Renovation &amp; Construction</h3>
+      <p>We work alongside trusted contractors and trades to bring complex renovations to life, acting as your design advocate from the first demo to the last coat of paint.</p>
+    </div>
+    <div class="service-item">
+      <span class="service-num">03</span>
+      <h3>Decoration &amp; Staging</h3>
+      <p>For homes that need a refresh without a full renovation — furniture curation, art selection, soft furnishings, and the layering that transforms a house into a home.</p>
+    </div>
+  </section>
+
+  <!-- QUOTE -->
+  <div class="quote-section">
+    <blockquote>"We don't design for trends — we design for the way you actually live."</blockquote>
+    <cite>— Stone &amp; Birch Studio</cite>
+  </div>
+
+  <!-- ABOUT PREVIEW -->
+  <div class="about-preview">
+    <div class="about-img">
+      <div class="img-box" style="height:100%; min-height:520px;">Studio Photo</div>
+    </div>
+    <div class="about-content">
+      <p class="eyebrow">About the Studio</p>
+      <h2>A small studio with a deeply <em>personal</em> practice</h2>
+      <p>Stone &amp; Birch was founded on the belief that your home should feel like the most considered expression of who you are. We take on a limited number of projects each year so that every client receives our full attention.</p>
+      <p>Based in Vancouver, we work throughout British Columbia and beyond for the right project.</p>
+      <a href="about.html" class="btn-link" style="margin-top:32px;">Our story</a>
+    </div>
+  </div>
+
+  <!-- SUBSCRIBE -->
+  <div class="subscribe-bar">
+    <h3>Stay in touch</h3>
+    <form class="subscribe-form" onsubmit="return false;">
+      <input type="email" placeholder="Your email address">
+      <button type="submit">Subscribe</button>
+    </form>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="index.html" class="logo" style="color:var(--cream);">Stone &amp; Birch</a>
+        <p>Full-service interior design and renovation studio based in Vancouver, BC.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="projects.html">Portfolio</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="process.html">Our Process</a></li>
+          <li><a href="press.html">Press</a></li>
+          <li><a href="connect.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <p><a href="tel:+16045551234">604 555 1234</a><br><a href="mailto:hello@stoneandbirch.com">hello@stoneandbirch.com</a></p>
+        <br>
+        <p><a href="#">Instagram</a><br><a href="#">Pinterest</a><br><a href="#">Houzz</a><br><a href="#">LinkedIn</a></p>
+      </div>
+      <div class="footer-col">
+        <h4>Find Us</h4>
+        <p>Your Address<br>Vancouver, BC<br>V6K 2A1</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>©Stone &amp; Birch 2026.</span>
+      <span><a href="#">Privacy Policy</a>&nbsp;·&nbsp;<a href="#">Terms of Use</a></span>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>

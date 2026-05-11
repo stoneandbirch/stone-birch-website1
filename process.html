@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Process — Stone & Birch</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .process-intro {
+      padding: 80px 48px 60px;
+      max-width: 700px;
+    }
+    .process-intro h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 300;
+      line-height: 1.3;
+      margin-bottom: 24px;
+    }
+    .process-intro p {
+      font-size: 0.85rem;
+      line-height: 1.95;
+      color: var(--mid);
+    }
+
+    .process-steps {
+      padding: 0 0 120px;
+    }
+    .process-step {
+      display: grid;
+      grid-template-columns: 60px 1fr 1fr;
+      gap: 48px;
+      padding: 60px 48px;
+      border-top: 1px solid #e4dfd8;
+      align-items: start;
+    }
+    .process-step:last-child { border-bottom: 1px solid #e4dfd8; }
+    .step-num {
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      color: var(--stone);
+      padding-top: 6px;
+    }
+    .step-text h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+      font-weight: 300;
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+    .step-text p {
+      font-size: 0.83rem;
+      line-height: 1.95;
+      color: var(--mid);
+    }
+    .step-img {
+      aspect-ratio: 4/3;
+      overflow: hidden;
+    }
+    .step-img img, .step-img .img-box {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .process-cta {
+      background: var(--charcoal);
+      padding: 100px 48px;
+      text-align: center;
+    }
+    .process-cta h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 300;
+      color: var(--cream);
+      margin-bottom: 28px;
+      line-height: 1.3;
+    }
+    .process-cta p {
+      font-size: 0.84rem;
+      color: var(--stone);
+      max-width: 480px;
+      margin: 0 auto 40px;
+      line-height: 1.9;
+    }
+    .btn-link-light {
+      display: inline-block;
+      font-size: 0.68rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--cream);
+      text-decoration: none;
+      border-bottom: 1px solid var(--cream);
+      padding-bottom: 3px;
+      transition: color 0.3s, border-color 0.3s;
+    }
+    .btn-link-light:hover { color: var(--stone); border-color: var(--stone); }
+
+    @media (max-width: 960px) {
+      .process-intro { padding: 60px 24px 40px; }
+      .process-step { grid-template-columns: 1fr; padding: 44px 24px; gap: 24px; }
+      .step-num { padding-top: 0; }
+      .process-cta { padding: 70px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav id="mainNav" class="dark scrolled">
+    <a href="index.html" class="logo">Stone &amp; Birch</a>
+    <button class="menu-btn" id="menuBtn" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="menu-overlay" id="menuOverlay">
+    <ul class="menu-links">
+      <li><a href="index.html" onclick="closeMenu()">Home</a></li>
+      <li><a href="projects.html" onclick="closeMenu()">Projects</a></li>
+      <li><a href="about.html" onclick="closeMenu()">About</a></li>
+      <li><a href="process.html" onclick="closeMenu()">Process</a></li>
+      <li><a href="services.html" onclick="closeMenu()">Services</a></li>
+      <li><a href="press.html" onclick="closeMenu()">Press</a></li>
+      <li><a href="connect.html" onclick="closeMenu()">Connect</a></li>
+    </ul>
+    <div class="menu-footer">
+      <p><a href="tel:+16045551234">604 555 1234</a><br><a href="mailto:hello@stoneandbirch.com">hello@stoneandbirch.com</a></p>
+      <p style="text-align:right;"><a href="#">Instagram</a>&nbsp;&nbsp;<a href="#">Pinterest</a></p>
+    </div>
+  </div>
+
+  <div class="page-hero">
+    <div class="img-box">Process Page Hero Image</div>
+    <div class="page-hero-overlay"></div>
+    <div class="page-hero-title">
+      <h1>Our Process</h1>
+    </div>
+  </div>
+
+  <div class="process-intro">
+    <p class="eyebrow" style="margin-bottom:20px;">How we work</p>
+    <h2>A thoughtful, transparent journey from first conversation to final home</h2>
+    <p>Renovating or designing your home is one of the most significant investments you'll make. Our process is designed to be clear, collaborative, and free of surprises — so that you feel confident and excited at every stage.</p>
+  </div>
+
+  <div class="process-steps">
+
+    <div class="process-step">
+      <span class="step-num">01</span>
+      <div class="step-text">
+        <h3>Discovery Call</h3>
+        <p>Every project begins with a conversation. We take 30 minutes to hear about your project, your family, your timeline, and your budget. This helps us understand whether we're the right fit — and if we are, what working together might look like.</p>
+      </div>
+      <div class="step-img"><div class="img-box">Step Image</div></div>
+    </div>
+
+    <div class="process-step">
+      <span class="step-num">02</span>
+      <div class="step-text">
+        <h3>Site Visit &amp; Concept</h3>
+        <p>We visit your home, take measurements, and get a feel for the space and the light. From there, we develop an initial concept direction — mood, materials, and a sense of what the finished home could feel like.</p>
+      </div>
+      <div class="step-img"><div class="img-box" style="background:#c5bfb8;">Step Image</div></div>
+    </div>
+
+    <div class="process-step">
+      <span class="step-num">03</span>
+      <div class="step-text">
+        <h3>Design Development</h3>
+        <p>We refine the concept into a full design — floor plans, material boards, custom millwork drawings, furniture selections, and full specifications. We present this in a detailed package and work through revisions collaboratively.</p>
+      </div>
+      <div class="step-img"><div class="img-box" style="background:#cac4bc;">Step Image</div></div>
+    </div>
+
+    <div class="process-step">
+      <span class="step-num">04</span>
+      <div class="step-text">
+        <h3>Construction &amp; Procurement</h3>
+        <p>We work alongside your general contractor (or help you find one) to oversee the build, manage trades, and ensure the design intent is carried through every detail. Simultaneously, we coordinate furniture and material orders to keep timelines aligned.</p>
+      </div>
+      <div class="step-img"><div class="img-box" style="background:#bdb7b0;">Step Image</div></div>
+    </div>
+
+    <div class="process-step">
+      <span class="step-num">05</span>
+      <div class="step-text">
+        <h3>Installation &amp; Styling</h3>
+        <p>Once construction is complete, we manage the furniture install, art placement, and final styling — the details that transform a finished renovation into a home. We want you to walk in for the first time and feel like it was made exactly for you.</p>
+      </div>
+      <div class="step-img"><div class="img-box" style="background:#c0bab3;">Step Image</div></div>
+    </div>
+
+  </div>
+
+  <div class="process-cta">
+    <h2>Ready to begin?</h2>
+    <p>We'd love to hear about your project. Fill out our intake form and we'll be in touch within two business days.</p>
+    <a href="connect.html" class="btn-link-light">Get in touch</a>
+  </div>
+
+  <footer>
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="index.html" class="logo" style="color:var(--cream);">Stone &amp; Birch</a>
+        <p>Full-service interior design and renovation studio based in Vancouver, BC.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="projects.html">Portfolio</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="connect.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <p><a href="tel:+16045551234">604 555 1234</a><br><a href="mailto:hello@stoneandbirch.com">hello@stoneandbirch.com</a></p>
+      </div>
+      <div class="footer-col">
+        <h4>Find Us</h4>
+        <p>Your Address<br>Vancouver, BC<br>V6K 2A1</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>©Stone &amp; Birch 2026.</span>
+      <span><a href="#">Privacy Policy</a>&nbsp;·&nbsp;<a href="#">Terms of Use</a></span>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>

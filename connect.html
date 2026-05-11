@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Connect — Stone & Birch</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .connect-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: calc(100vh - var(--nav-h));
+    }
+    .connect-img {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      overflow: hidden;
+    }
+    .connect-img img, .connect-img .img-box {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .connect-form-side {
+      padding: 120px 64px 80px;
+      display: flex;
+      flex-direction: column;
+    }
+    .connect-form-side .eyebrow { margin-bottom: 20px; }
+    .connect-form-side h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.2rem, 4vw, 3.5rem);
+      font-weight: 300;
+      line-height: 1.2;
+      margin-bottom: 24px;
+    }
+    .connect-form-side > p {
+      font-size: 0.84rem;
+      line-height: 1.9;
+      color: var(--mid);
+      max-width: 440px;
+      margin-bottom: 48px;
+    }
+
+    .contact-form { display: flex; flex-direction: column; gap: 0; }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+    .form-field {
+      margin-bottom: 32px;
+    }
+    .form-field label {
+      display: block;
+      font-size: 0.62rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--stone);
+      margin-bottom: 10px;
+    }
+    .form-field input,
+    .form-field textarea,
+    .form-field select {
+      width: 100%;
+      background: none;
+      border: none;
+      border-bottom: 1px solid #d4cec7;
+      outline: none;
+      font-family: 'Jost', sans-serif;
+      font-size: 0.84rem;
+      font-weight: 300;
+      color: var(--charcoal);
+      padding: 10px 0;
+      transition: border-color 0.3s;
+      -webkit-appearance: none;
+      border-radius: 0;
+    }
+    .form-field input:focus,
+    .form-field textarea:focus,
+    .form-field select:focus { border-color: var(--charcoal); }
+    .form-field textarea { resize: vertical; min-height: 100px; }
+    .form-field select option { color: var(--charcoal); }
+
+    .submit-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--charcoal);
+      color: var(--cream);
+      border: none;
+      cursor: pointer;
+      font-family: 'Jost', sans-serif;
+      font-size: 0.68rem;
+      font-weight: 300;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      padding: 18px 36px;
+      transition: background 0.3s;
+      margin-top: 8px;
+      align-self: flex-start;
+    }
+    .submit-btn:hover { background: var(--mid); }
+
+    .connect-details {
+      margin-top: 64px;
+      padding-top: 48px;
+      border-top: 1px solid #e4dfd8;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 36px;
+    }
+    .connect-detail h4 {
+      font-size: 0.62rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--stone);
+      margin-bottom: 10px;
+    }
+    .connect-detail p, .connect-detail a {
+      font-size: 0.82rem;
+      color: var(--charcoal);
+      text-decoration: none;
+      line-height: 1.8;
+      display: block;
+    }
+    .connect-detail a:hover { color: var(--stone); }
+
+    @media (max-width: 960px) {
+      .connect-layout { grid-template-columns: 1fr; }
+      .connect-img { display: none; }
+      .connect-form-side { padding: 100px 24px 60px; }
+      .form-row { grid-template-columns: 1fr; gap: 0; }
+      .connect-details { grid-template-columns: 1fr; gap: 28px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav id="mainNav" class="dark scrolled">
+    <a href="index.html" class="logo">Stone &amp; Birch</a>
+    <button class="menu-btn" id="menuBtn" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="menu-overlay" id="menuOverlay">
+    <ul class="menu-links">
+      <li><a href="index.html" onclick="closeMenu()">Home</a></li>
+      <li><a href="projects.html" onclick="closeMenu()">Projects</a></li>
+      <li><a href="about.html" onclick="closeMenu()">About</a></li>
+      <li><a href="process.html" onclick="closeMenu()">Process</a></li>
+      <li><a href="services.html" onclick="closeMenu()">Services</a></li>
+      <li><a href="press.html" onclick="closeMenu()">Press</a></li>
+      <li><a href="connect.html" onclick="closeMenu()">Connect</a></li>
+    </ul>
+    <div class="menu-footer">
+      <p><a href="tel:+16045551234">604 555 1234</a><br><a href="mailto:hello@stoneandbirch.com">hello@stoneandbirch.com</a></p>
+      <p style="text-align:right;"><a href="#">Instagram</a>&nbsp;&nbsp;<a href="#">Pinterest</a></p>
+    </div>
+  </div>
+
+  <div class="connect-layout">
+
+    <!-- Left: sticky image -->
+    <div class="connect-img">
+      <div class="img-box">Contact Page Image</div>
+    </div>
+
+    <!-- Right: form -->
+    <div class="connect-form-side">
+      <p class="eyebrow">Let's talk</p>
+      <h1>Start a conversation</h1>
+      <p>We take on a limited number of projects each year and love getting to know prospective clients early. Fill out the form below and we'll be in touch within two business days.</p>
+
+      <form class="contact-form" onsubmit="return false;">
+        <div class="form-row">
+          <div class="form-field">
+            <label for="fname">First Name</label>
+            <input type="text" id="fname" name="fname" placeholder="Jane">
+          </div>
+          <div class="form-field">
+            <label for="lname">Last Name</label>
+            <input type="text" id="lname" name="lname" placeholder="Smith">
+          </div>
+        </div>
+
+        <div class="form-field">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" placeholder="jane@example.com">
+        </div>
+
+        <div class="form-field">
+          <label for="phone">Phone (optional)</label>
+          <input type="tel" id="phone" name="phone" placeholder="604 555 1234">
+        </div>
+
+        <div class="form-field">
+          <label for="service">Service of Interest</label>
+          <select id="service" name="service">
+            <option value="" disabled selected>Select one</option>
+            <option>Full-Service Interior Design</option>
+            <option>Renovation &amp; Construction</option>
+            <option>Decoration &amp; Staging</option>
+            <option>Not sure yet</option>
+          </select>
+        </div>
+
+        <div class="form-field">
+          <label for="project">Tell us about your project</label>
+          <textarea id="project" name="project" rows="5" placeholder="Where is your project located? What are you hoping to achieve? What's your rough timeline?"></textarea>
+        </div>
+
+        <div class="form-field">
+          <label for="budget">Approximate Budget</label>
+          <select id="budget" name="budget">
+            <option value="" disabled selected>Select range</option>
+            <option>Under $50,000</option>
+            <option>$50,000 – $150,000</option>
+            <option>$150,000 – $300,000</option>
+            <option>$300,000 – $500,000</option>
+            <option>$500,000+</option>
+            <option>Not sure yet</option>
+          </select>
+        </div>
+
+        <div class="form-field">
+          <label for="hear">How did you hear about us?</label>
+          <input type="text" id="hear" name="hear" placeholder="Instagram, referral, Houzz…">
+        </div>
+
+        <button type="submit" class="submit-btn">Send message →</button>
+      </form>
+
+      <div class="connect-details">
+        <div class="connect-detail">
+          <h4>Call us</h4>
+          <a href="tel:+16045551234">604 555 1234</a>
+        </div>
+        <div class="connect-detail">
+          <h4>Email us</h4>
+          <a href="mailto:hello@stoneandbirch.com">hello@stoneandbirch.com</a>
+        </div>
+        <div class="connect-detail">
+          <h4>Find us</h4>
+          <p>Your Address<br>Vancouver, BC<br>V6K 2A1</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>

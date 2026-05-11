@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>The Arbutus House — Stone & Birch</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Project detail page */
+    .proj-header {
+      padding: 100px 48px 56px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: end;
+      border-bottom: 1px solid #e4dfd8;
+    }
+    .proj-header h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.8rem, 5vw, 4.5rem);
+      font-weight: 300;
+      line-height: 1.1;
+    }
+    .proj-header .proj-summary {
+      font-size: 0.84rem;
+      line-height: 1.95;
+      color: var(--mid);
+    }
+    .proj-header .proj-summary p { margin-bottom: 12px; }
+
+    .proj-details {
+      padding: 40px 48px;
+      display: flex;
+      gap: 60px;
+      border-bottom: 1px solid #e4dfd8;
+    }
+    .proj-detail-item { }
+    .proj-detail-item .label {
+      font-size: 0.6rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--stone);
+      margin-bottom: 6px;
+    }
+    .proj-detail-item .value {
+      font-size: 0.82rem;
+      color: var(--charcoal);
+    }
+
+    /* Photo grid */
+    .photo-section {
+      padding: 60px 0;
+    }
+    .photo-full {
+      width: 100%;
+      aspect-ratio: 16/9;
+      overflow: hidden;
+    }
+    .photo-full img, .photo-full .img-box { width: 100%; height: 100%; object-fit: cover; }
+
+    .photo-pair {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3px;
+      margin-top: 3px;
+    }
+    .photo-pair .photo-item {
+      aspect-ratio: 4/3;
+      overflow: hidden;
+    }
+    .photo-pair .photo-item img,
+    .photo-pair .photo-item .img-box { width: 100%; height: 100%; object-fit: cover; }
+
+    .photo-trio {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 3px;
+      margin-top: 3px;
+    }
+    .photo-trio .photo-main { aspect-ratio: 4/3; overflow: hidden; }
+    .photo-trio .photo-side { display: grid; gap: 3px; }
+    .photo-trio .photo-small { aspect-ratio: 1; overflow: hidden; }
+    .photo-trio img, .photo-trio .img-box { width: 100%; height: 100%; object-fit: cover; }
+
+    /* Caption text area */
+    .proj-caption {
+      padding: 60px 48px;
+      max-width: 680px;
+    }
+    .proj-caption p {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.3rem, 2.2vw, 1.8rem);
+      font-weight: 300;
+      font-style: italic;
+      line-height: 1.5;
+      color: var(--charcoal);
+    }
+
+    /* Next project nav */
+    .next-project {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border-top: 1px solid #e4dfd8;
+    }
+    .next-proj-link {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+      padding: 48px;
+      transition: background 0.3s;
+      border-right: 1px solid #e4dfd8;
+    }
+    .next-proj-link:last-child { border-right: none; }
+    .next-proj-link:hover { background: var(--cream); }
+    .next-proj-link .dir {
+      font-size: 0.6rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--stone);
+      margin-bottom: 10px;
+      display: block;
+    }
+    .next-proj-link h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 300;
+    }
+    .next-proj-link .arrow { margin-left: 8px; }
+
+    @media (max-width: 960px) {
+      .proj-header { grid-template-columns: 1fr; padding: 80px 24px 40px; gap: 32px; }
+      .proj-details { padding: 32px 24px; flex-wrap: wrap; gap: 28px; }
+      .proj-caption { padding: 48px 24px; }
+      .photo-pair, .photo-trio { grid-template-columns: 1fr; }
+      .next-project { grid-template-columns: 1fr; }
+      .next-proj-link { border-right: none; border-bottom: 1px solid #e4dfd8; padding: 32px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav id="mainNav" class="dark scrolled">
+    <a href="index.html" class="logo">Stone &amp; Birch</a>
+    <button class="menu-btn" id="menuBtn" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="menu-overlay" id="menuOverlay">
+    <ul class="menu-links">
+      <li><a href="index.html" onclick="closeMenu()">Home</a></li>
+      <li><a href="projects.html" onclick="closeMenu()">Projects</a></li>
+      <li><a href="about.html" onclick="closeMenu()">About</a></li>
+      <li><a href="process.html" onclick="closeMenu()">Process</a></li>
+      <li><a href="services.html" onclick="closeMenu()">Services</a></li>
+      <li><a href="press.html" onclick="closeMenu()">Press</a></li>
+      <li><a href="connect.html" onclick="closeMenu()">Connect</a></li>
+    </ul>
+    <div class="menu-footer">
+      <p><a href="tel:+16045551234">604 555 1234</a><br><a href="mailto:hello@stoneandbirch.com">hello@stoneandbirch.com</a></p>
+      <p style="text-align:right;"><a href="#">Instagram</a>&nbsp;&nbsp;<a href="#">Pinterest</a></p>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <div style="width:100%; height:90vh; overflow:hidden;">
+    <div class="img-box" style="height:100%;">Your Hero Project Image</div>
+  </div>
+
+  <!-- PROJECT HEADER -->
+  <div class="proj-header">
+    <h1>The Arbutus House</h1>
+    <div class="proj-summary">
+      <p>In the heart of Vancouver's Arbutus neighbourhood, what began as a modest 1960s bungalow was thoughtfully reimagined into a spacious, light-filled family home — warm, layered, and designed for real life.</p>
+      <p>Replace this with your own project description. Keep it conversational and personal. Talk about what the client needed, what you discovered in the space, and how you solved it.</p>
+    </div>
+  </div>
+
+  <!-- PROJECT DETAILS -->
+  <div class="proj-details">
+    <div class="proj-detail-item">
+      <div class="label">Project Type</div>
+      <div class="value">Full Renovation &amp; Interior Design</div>
+    </div>
+    <div class="proj-detail-item">
+      <div class="label">Year</div>
+      <div class="value">2024</div>
+    </div>
+    <div class="proj-detail-item">
+      <div class="label">Location</div>
+      <div class="value">Vancouver, BC</div>
+    </div>
+    <div class="proj-detail-item">
+      <div class="label">Size</div>
+      <div class="value">3,200 sq. ft.</div>
+    </div>
+    <div class="proj-detail-item">
+      <div class="label">Photography</div>
+      <div class="value">Your Photographer's Name</div>
+    </div>
+  </div>
+
+  <!-- PHOTOS -->
+  <div class="photo-section">
+    <!-- Full width -->
+    <div class="photo-full">
+      <div class="img-box">Full Width Photo</div>
+    </div>
+
+    <!-- Pair -->
+    <div class="photo-pair">
+      <div class="photo-item"><div class="img-box" style="background:#c5bfb8;">Photo</div></div>
+      <div class="photo-item"><div class="img-box" style="background:#bdb7b0;">Photo</div></div>
+    </div>
+
+    <!-- Caption quote -->
+    <div class="proj-caption">
+      <p>"Add a meaningful quote or observation about this project — something your client said, or an idea that guided the design."</p>
+    </div>
+
+    <!-- Full width -->
+    <div class="photo-full">
+      <div class="img-box" style="background:#cac4bc;">Full Width Photo</div>
+    </div>
+
+    <!-- Trio: big left, two stacked right -->
+    <div class="photo-trio">
+      <div class="photo-main"><div class="img-box" style="background:#c2bcb5;">Large Photo</div></div>
+      <div class="photo-side">
+        <div class="photo-small"><div class="img-box" style="background:#bab4ad;">Photo</div></div>
+        <div class="photo-small"><div class="img-box" style="background:#c8c2bb;">Photo</div></div>
+      </div>
+    </div>
+
+    <!-- Pair -->
+    <div class="photo-pair">
+      <div class="photo-item"><div class="img-box" style="background:#c0bab3;">Photo</div></div>
+      <div class="photo-item"><div class="img-box" style="background:#c7c1ba;">Photo</div></div>
+    </div>
+
+    <!-- Full width -->
+    <div class="photo-full">
+      <div class="img-box" style="background:#bdb7b0;">Final Full Width Photo</div>
+    </div>
+  </div>
+
+  <!-- NEXT / PREV PROJECT -->
+  <div class="next-project">
+    <a href="projects.html" class="next-proj-link">
+      <span class="dir">← Back to all projects</span>
+      <h4>Projects Gallery</h4>
+    </a>
+    <a href="project.html" class="next-proj-link" style="text-align:right;">
+      <span class="dir">Next project →</span>
+      <h4>Kerrisdale Kitchen</h4>
+    </a>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="index.html" class="logo" style="color:var(--cream);">Stone &amp; Birch</a>
+        <p>Full-service interior design and renovation studio based in Vancouver, BC.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="projects.html">Portfolio</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="connect.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <p><a href="tel:+16045551234">604 555 1234</a><br><a href="mailto:hello@stoneandbirch.com">hello@stoneandbirch.com</a></p>
+      </div>
+      <div class="footer-col">
+        <h4>Find Us</h4>
+        <p>Your Address<br>Vancouver, BC<br>V6K 2A1</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>©Stone &amp; Birch 2026.</span>
+      <span><a href="#">Privacy Policy</a>&nbsp;·&nbsp;<a href="#">Terms of Use</a></span>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
