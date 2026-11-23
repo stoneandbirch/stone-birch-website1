@@ -33,7 +33,16 @@ const SCHEMA = [
   `CREATE TABLE IF NOT EXISTS file_parts (id text NOT NULL, n int NOT NULL, data text NOT NULL, PRIMARY KEY (id, n))`,
   `CREATE TABLE IF NOT EXISTS portal_links (pid text PRIMARY KEY, token text UNIQUE NOT NULL, active boolean NOT NULL DEFAULT true, pin text NOT NULL DEFAULT '',
      approve boolean NOT NULL DEFAULT true, html text NOT NULL DEFAULT '', snap_at timestamptz, views jsonb NOT NULL DEFAULT '[]'::jsonb,
-     fails int NOT NULL DEFAULT 0, locked_until timestamptz, updated_by text, updated_at timestamptz NOT NULL DEFAULT now())`
+     fails int NOT NULL DEFAULT 0, locked_until timestamptz, updated_by text, updated_at timestamptz NOT NULL DEFAULT now())`,
+  `CREATE TABLE IF NOT EXISTS proposal_pages (slug text PRIMARY KEY, id text NOT NULL, html text NOT NULL DEFAULT '', active boolean NOT NULL DEFAULT true, accepted jsonb, views jsonb NOT NULL DEFAULT '[]'::jsonb, updated_by text, updated_at timestamptz NOT NULL DEFAULT now())`,
+  `ALTER TABLE proposal_pages ADD COLUMN IF NOT EXISTS pass_hash text NOT NULL DEFAULT ''`,
+  `ALTER TABLE proposal_pages ADD COLUMN IF NOT EXISTS pass_salt text NOT NULL DEFAULT ''`,
+  `ALTER TABLE proposal_pages ADD COLUMN IF NOT EXISTS gate jsonb`,
+  `ALTER TABLE proposal_pages ADD COLUMN IF NOT EXISTS accepted_hist jsonb NOT NULL DEFAULT '[]'::jsonb`,
+  `CREATE TABLE IF NOT EXISTS proposal_tries (k text PRIMARY KEY, fails int NOT NULL DEFAULT 0, locked_until timestamptz, updated_at timestamptz NOT NULL DEFAULT now())`,
+  `CREATE TABLE IF NOT EXISTS contract_pages (slug text PRIMARY KEY, id text NOT NULL, html text NOT NULL DEFAULT '', active boolean NOT NULL DEFAULT true, title text NOT NULL DEFAULT '', signers jsonb NOT NULL DEFAULT '[]'::jsonb, sigs jsonb NOT NULL DEFAULT '[]'::jsonb, events jsonb NOT NULL DEFAULT '[]'::jsonb, fingerprint text NOT NULL DEFAULT '', pay jsonb, invoice jsonb, gate jsonb, pass_hash text NOT NULL DEFAULT '', pass_salt text NOT NULL DEFAULT '', completed_at timestamptz, updated_by text, updated_at timestamptz NOT NULL DEFAULT now())`,
+  `ALTER TABLE contract_pages ADD COLUMN IF NOT EXISTS pass_code text NOT NULL DEFAULT ''`,
+  `CREATE TABLE IF NOT EXISTS portal_quotes (pid text NOT NULL, qid text NOT NULL, html text NOT NULL DEFAULT '', updated_at timestamptz NOT NULL DEFAULT now(), PRIMARY KEY (pid, qid))`
 ];
 
 export async function q(text, params) {

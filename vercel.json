@@ -16,6 +16,56 @@
       "dest": "/index.js?__p=$1"
     },
     {
+      "src": "/legal/(privacy|terms)/?",
+      "dest": "/index.js?__p=legal/$1"
+    },
+    {
+      "src": "/contracts/([a-z0-9-]+)/signed/?",
+      "dest": "/index.js?__p=con/$1/signed"
+    },
+    {
+      "src": "/contracts/([a-z0-9-]+)/?",
+      "dest": "/index.js?__p=con/$1"
+    },
+    {
+      "src": "/proposals/([a-z0-9-]+)/?",
+      "dest": "/index.js?__p=prop/$1"
+    },
+    {
+      "src": "/([a-z0-9-]+)/signed/?",
+      "has": [
+        {
+          "type": "host",
+          "value": "contracts.stoneandbirch.com"
+        }
+      ],
+      "dest": "/index.js?__p=con/$1/signed"
+    },
+    {
+      "src": "/([a-z0-9-]+)/?",
+      "has": [
+        {
+          "type": "host",
+          "value": "contracts.stoneandbirch.com"
+        }
+      ],
+      "dest": "/index.js?__p=con/$1"
+    },
+    {
+      "src": "/([a-z0-9-]+)/?",
+      "has": [
+        {
+          "type": "host",
+          "value": "proposals.stoneandbirch.com"
+        }
+      ],
+      "dest": "/index.js?__p=prop/$1"
+    },
+    {
+      "src": "/p/([A-Za-z0-9]+)/quote/([A-Za-z0-9_-]+)/?",
+      "dest": "/index.js?__p=p/$1/quote/$2"
+    },
+    {
       "src": "/p/([A-Za-z0-9]+)/?",
       "dest": "/index.js?__p=p/$1"
     },
